@@ -59,3 +59,10 @@ puts podruga
 k_nam_v_gosti_idet[0] = "M"
 puts podruga
 p"***"
+
+puts 'lesson2'
+
+podruga = "Dasha"
+k_nam_v_gosti_idet = "Vanya"
+puts podruga
+p"***"
