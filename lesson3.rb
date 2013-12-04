@@ -1,5 +1,5 @@
 #coding utf-8
-
+# http://www.ruby-doc.org/core-2.0.0/Array.html
 # massivi
 p "3 sposoba sozdaniya massivov"
 p [1,2,3,4,5,6,7]
@@ -121,3 +121,105 @@ p massiv.shift
 p massiv
 
 p ".shift .unshift .pop .push"
+
+# logicheskie metodi
+p "logicheskie metodi   ?"
+p massiv = [1,2,3,4,5]
+p massiv.methods.grep(/\?$/)
+p massiv.methods.grep(/\?$/).sort
+p "est li element ?"
+p massiv = [1,2,3,4,5,6,7,5]
+p iskat = 5
+p massiv.find_all{ |elem| elem == iskat}
+p massiv.find_all{ |elem| elem == iskat}.size != 0
+# .include
+p massiv = [1,2,3,4,5,6,7,5]
+p iskat = 5
+p massiv.include?(iskat)
+p "*"
+p massiv = ["raz","dva","tri"]
+p massiv.include?("elka")
+p "pustoy massiv ?"
+p pustoy_massiv = []
+p polny_massiv = [1,2,3,4,5,6,7]
+p pustoy_massiv == []
+p polny_massiv == []
+p pustoy_massiv.size == 0
+p polny_massiv.size == 0
+p pustoy_massiv.empty?
+p polny_massiv.empty?
+
+p "*** iteratori ***"
+p ".map"
+p massiv = ["raz","dva","tri"]
+p massiv.map { 0 }
+p "*"
+p massiv = [1,2,3,4,5,6,7,5]
+p massiv.map { |elem| elem ** 2}
+p massiv
+p "*"
+p massiv = [1,2,3,4,5,6,7,5]
+p massiv = massiv.map { |elem| elem ** 2}
+p massiv
+p "*"
+p ".find_all"
+p massiv = [1,2,3,4,5,6,7]
+p massiv.find_all { |elem| elem %2==0 }
+p massiv.find_all { |elem| (elem%2).zero? }
+p massiv.find_all { |elem| (elem&1).zero? } # ??? !!!
+p massiv.find_all { |elem| (elem[0]).zero? }  # ??? !!!
+
+p "summ proizved agregaciya"
+p "summ proizved -> .inject"
+p massiv = [1,2,3,4,5]
+p massiv.inject( 0 ) { |rezult, elem| rezult + elem}
+p massiv.inject( 0 ) { |jksdfgh_rezult, jskdfghs_elem_djfshg| jksdfgh_rezult + jskdfghs_elem_djfshg}
+p massiv = [1,2,3,4,5]
+p massiv.inject( 1 ) { |rezult, elem| rezult * elem}
+p "***"
+
+p"razbienie na 2"
+p ".patition"
+p massiv2 = [1,2,3,4,5,6,7,8,9]
+p massiv2.partition{ |x| (x%3).zero?}
+p "*"
+p massiv = [1,2,3,4,5,6,7,8,9]
+#p a, b = massiv2.partition{ |x| (x%3).zero? } # !!! ---
+#p (a, b = massiv2.partition{ |x| (x%3).zero? }) # !!! ----
+one, two = massiv2.partition{ |x| (x%3).zero? } # !!!
+p one
+p two
+p "*"
+
+p "logicheskie iteratori .all? .any?"
+p "do versii 1.8"
+p "udovletvoryaet li vse elementi usloviyu ?"
+p massiv = [1,2,2,3,4,5,6,7,8,9]
+p massiv.inject (true) { |result, elem| result && (elem > 2)}
+p "***"
+p "posle versii 1.8"
+p "udovletvoryaet li vse elementi usloviyu ?"
+p massiv = [1,2,2,3,4,5,6,7,8,9]
+p massiv.all? { |elem| elem > 2 }
+p "***"
+p "do versii 1.8"
+p "udovletvoryaet li odin element usloviyu ?"
+p massiv = [1,2,3,4,5,6,7,8,9]
+p massiv.inject (false) { |result, elem| result || (elem > 2)}
+p "***"
+p "posle versii 1.8"
+p "udovletvoryaet li vse elementi usloviyu ?"
+p massiv = [1,2,2,3,4,5,6,7,8,9]
+p massiv.any? { |elem| elem > 2 }
+
+p "*** hitrosti ***"
+p "generaciya parolya"
+p simvoly = ['a'..'z', 'A'..'Z', '0'..'9'].map { |x| x.to_a }.flatten
+p (0...8).map{ simvoly[ rand (simvoly.size)]}.join
+p "peremeshat' uporyadochenny massiv"
+p massiv = [1,2,2,3,4,5,6,7,8,9]
+p massiv.sort_by{rand}
+p massiv.sort_by!{rand}
+p "po ubivaniy"
+p mas = [1,2,3,9,7,5,6,4]
+p mas. sort{ |x, y| y <=> x}
