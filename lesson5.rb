@@ -170,3 +170,56 @@ p "pravilniy poisk"
 p "raz, dva, tri!".scan(/[a-zA-Z]+/)
 p "raz, dva, tri!".scan(/[,\.;:! ]+/)
 p "*"
+
+p stroka = "495-506-13 56 nata@rambler.ru(34) 1.5.1232 12.14.56 31.december.9999)"
+p stroka.scan(/(?:[-a-z_\.])*@(?:[-a-z])*(?:\.[a-z]{2,4})+/) # !!!
+p stroka
+p stroka.scan(/(?:[-a-z_\.])*@(?:[\d])*(?:\.[a-z]{2,4})+/)    # !!!
+#p stroka
+p "*"
+
+p "ispolzovanie [ ] !!!"
+p "raz, dva, tri!" [/[A-Za-z]+/]
+p "***"
+
+p "tekst.scan( pravilo ) + tekst.split (pravilo) = tekst" # !!! pochitat !!!
+p "***"
+
+# jadnost   {n,m}  idet ymenshenie ot m k n
+# {n,m} dlya smeni poryadka  ot n k m dobavl "?"
+p "raz, dva, tri!".scan(/[a-zA-Z]+?/) # dobavl "?"
+p "***"
+
+p "Hitrosti"
+# zadacha
+class String
+  def wrap(col=80)
+    gsub(/(.{1,#{col}}) ( +|$\n?) | (.{1,#{col}})/,"\\1\\3\n")
+  end
+end
+p "wrapping text with regular expressions".wrap( 10 )
+p "metodi preobr k stroke"
+# class Container
+#  def to_s
+#    "konteyner"
+#  end
+#end
+#cont = Container.new
+#p "Eto #{cont}"
+
+p "*"
+
+class Container
+  include Comparable
+  def to_str
+    "konteyner"
+  end
+  def to_s
+    "konteyner"
+  end
+  def <=> (other)
+    to_s <=> other.to_s
+  end
+end
+cont = Container.new
+p "konteyner" == cont
