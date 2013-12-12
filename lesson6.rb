@@ -166,7 +166,7 @@ def func(a, &block)
 end
 
 p func true
-p func false # net rezult
+#p func false # net rezult
 p "***"
 
 def func(a, &block)
@@ -180,6 +180,46 @@ p func false
 func(false) { | slova | puts "???  " + slova }  # ne srabotalo
 p "***"
 
-/*def writing_to(file, &block)
-  File.open(file, 'w', &block)
-end*/
+# def writing_to(file, &block)
+#  File.open(file, 'w', &block)
+#end
+
+p "***"
+class Array     # !!!
+  def size( &block)
+    block ? inject( 0 ){ | count, elem | ( yield elem ) ? count + 1 : count }
+    : length
+  end
+end
+
+p mas = [1,2,3,4,5,6,7]
+p mas.size{ | i | (i%2).zero? }
+p " "
+p "***"
+p '   '
+
+p rr = 3 + rand( 4 )
+
+class Range
+  def rand
+    first + Kernel.rand( last - first + ( exclude_end? ? 0 : 1 ) )
+  end
+end
+p (3..6).rand
+p Array.new(100) { (3..6).rand }.uniq.sort
+#p Array.new(100){ ('a'..'z').rand }              # !!!
+p "***"
+
+class Array
+  def rand
+    self[ Kernel.rand( size )]
+  end
+end
+class Range
+  def rand
+    to_a.rand
+  end
+end
+
+p Array.new(100){ ('a'..'z').rand }
+p '***'
