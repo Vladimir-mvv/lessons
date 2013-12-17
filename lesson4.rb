@@ -123,3 +123,112 @@ p '*'
 p xew2 = { "1kl" => 4, "2kl" => 5, "3kl" => 4 }
 p xew2.invert
 p '***'
+
+p 'obnovlenie pari'
+p massiv3 = [1,2,1,2,3,2,1,2,4,5]
+p massiv3.inject( {} ){ | result, i | result.update( { i=>1 } ){ |key,old,new| old+new } }
+
+p 'razmer .size'
+p xew2 = { "1kl" => 4, "2kl" => 5, "3kl" => 4 }
+p xew2.size
+p '***'
+
+p 'udalenie pari po kluchu .delete'
+p n = { 1 => 4, 5 => 3, 2 => 2, 4 => 5 }
+p n.delete( 5 )
+p n
+p n.delete( 5 )
+p '***'
+
+p 'udalenie proizvolnoy pari .shift'
+p n = { 1 => 4, 5 => 3, 2 => 2, 4 => 5 }
+p n.shift
+p n
+p '***'
+
+p 'preobrazovanie v indeksniy mas'
+p masn = { 'gaechn kluch' => 10, 'razvodnoy kluch' => 24 }
+p masn.to_a
+p '***'
+
+p 'sortirovka'
+p masn = { 'gaechn kluch' => 10, 'razvodnoy kluch' => 24 }
+p masn.sort
+p masn.sort_by{ |key,value| value }
+p '***'
+
+p 'min max'
+p masn = { 'gaechn kluch' => 10, 'razvodnoy kluch' => 24 }
+p 'max'
+p masn.max
+p 'min'
+p masn.min
+p '*'
+p masn = { 'gaechn kluch' => 10, 'razvodnoy kluch' => 24 }
+p 'max'
+p masn.max_by{ |key,value| value }
+p 'min'
+p masn.min_by{ |array| array[0] }
+p '***'
+p '  '
+p 'logicheskie metodi'
+p 'pustoy?'
+p pustoy = {}
+p polniy_masn = { 'gaechn kluch' => 10, 'razvodnoy kluch' => 24, 'kluch' => 'zamochniy' }
+p pustoy == {}
+p polniy_masn == {}
+p '*'
+p pustoy.size.zero?
+p polniy_masn.size.zero?
+p '*'
+p pustoy.empty?
+p polniy_masn.empty?
+p '***'
+
+p 'est li kluch'
+p polniy_masn = { 'gaechn kluch' => 10, 'razvodnoy kluch' => 24, 'kluch' => 'zamochniy' }
+p polniy_masn.keys.include?( "gaechn kluch" )
+p '*'
+p polniy_masn.key?( "gaechn kluch" )
+p '*'
+p polniy_masn.include?( "gaechn kluch" )
+p '***'
+
+p 'est li znachenie?'
+p polniy_masn = { 'gaechn kluch' => 10, 'razvodnoy kluch' => 24, 'kluch' => 'zamochniy' }
+p polniy_masn.values.include?( "gaechn kluch" )
+p polniy_masn.values.include?( "zamochniy" )
+p '*'
+p polniy_masn.value?( "zamochniy" )
+p '*'
+p polniy_masn.has_value?( "zamochniy" )
+p '***'
+p '   '
+
+p '*** iteratori ***'
+p 'find_all map inject'
+#p polniy_mas = { 'gaechn kluch' => 10, 'razvodnoy kluch' => 24, 'kluch' => 'zamochniy' }
+#p polniy_mas = { 'gaechn kluch' => 10, 'razvodnoy kluch' => 24 }
+p polniy_mas = { "gaechn kluch" => 10, "razvodnoy kluch" => 24 }
+p polniy_mas.find_all{ |array| array[1] < 15 }
+p polniy_mas.map{ |array| "#{array[0]} na #{array[1]}" }
+p polniy_mas.inject(0){ |result, array| result + array[1] }
+p '***'
+p '   '
+
+p polniy_mass = { "gaechn kluch" => 10, "razvodnoy kluch" => 24 }
+p polniy_mass.find_all{ |key, value| value < 15 }
+p polniy_mass.map{ |key, value| "#{key} na #{value}" }
+p polniy_mass.inject(0){ |result, (key, value)| result+value }
+p "***"
+p '   '
+
+class Hash
+  def method_missing( id )
+    self[ id.id2name ]
+  end
+end
+
+p ma = { "hello" => "hi", "bye" => "bi bi" }
+p ma.hello
+p ma.bye
