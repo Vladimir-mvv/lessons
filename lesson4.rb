@@ -64,9 +64,62 @@ p "***"
 p [1,2,3].hash
 p "***"
 
+p'iz 1mernogo massiva'
 p massiv1 = [1,4,5,3,2,2]
 p Hash[ *massiv1 ]
 p "***"
 
+p'iz 2mernogo massiva'
 p massiv2 = [[1,4], [5,3], [2,2]]
 p Hash[ *massiv2.flatten ]
+p "***"
+
+p massivv = [[1,5,2],[4,3,2]]
+p Hash[ *massivv.transpose.flatten ]
+p "***"
+
+p "net dannih"
+p xew = { }
+p xew[1] = 4
+p xew[5] = 3
+p xew[2] = 2
+p xew
+p '***'
+
+p'izvesten tolko tip znacheniy'
+p xew = Hash.new( "" )
+p xew[ "pesenka pro zaycev" ] += " v temnosinem lesu"
+p xew[ "pesenka pro zaycev" ] += ", gde trepeschut osini"
+p xew
+p '*'
+
+p xew1 = Hash.new( 0 )
+p xew1[ 'zarplata' ] += 60
+p xew1[ 'zarplata' ] *= 21
+p xew1
+p '***'
+
+p 'vse dano'
+p m = { "mart" => 400, "yanvar" => 500, "fevral" => 700}
+p '***'
+p '      '
+p '***'
+p "*** metodi raboti ***"
+p '***'
+p '  '
+
+p ' poluchenie mas kluchey i mas znacheniy'
+p '.keys .values'
+p n = { 1 => 4, 5 => 3, 2 => 2 }.keys
+p n = { '1' => 4, '5' => 3, '2' => 2 }.values
+p '***'
+
+p 'zamena kluchey na znacheniya'
+p '.invert'
+p xew2 = { "1kl" => 4, "2kl" => 5, "3kl" => 7 }
+p xew2.invert
+p '*'
+
+p xew2 = { "1kl" => 4, "2kl" => 5, "3kl" => 4 }
+p xew2.invert
+p '***'
