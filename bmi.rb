@@ -12,5 +12,6 @@
 
 def bmi(weight, height)
   #TODO вычислить значение индекса массы тела для заданных weight (kg) и height (cm)
+  index = weight / height**2
 end
 

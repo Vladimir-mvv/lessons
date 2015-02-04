@@ -12,5 +12,18 @@ d = 0 => root1
 
 def quadratic_equation(a, b, c)
   #TODO код для решения квадратного уравнения
+  d = b**2 - 4*a*c
+  if d < 0
+    puts ('No roots')
+  end
+  if d == 0
+    root1 = -b / 2*a
+    puts ("root1 = {#root1}")
+  elsif
+          root1 = (( -b + d**0.5 ) / 2 * a )
+          root2 = (( -b - sqrt(d) ) / 2*a)
+          puts ("root1 = {#root1} root2 = {#root2}")
+
+  end
 end
 
