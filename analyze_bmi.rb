@@ -19,10 +19,11 @@ def analyze_bmi(weight, height)
   #TODO �-��T����+������T�T� ���-T������-T���T� T������-�-�����- �+��T� �-�-���+���-�-�-���- bmi
   #TODO ���������� ��������� �������� ��� ���������� bmi
 
+=begin
   if bmi < 18.5
     puts(" Underweight ")
   end
-  if (bmi > 18.5) && (bmi < 24.9)
+  if (bmi >= 18.5) && (bmi < 24.9)
     puts(" Normal weight ")
   end
   if (bmi > 25) && (bmi < 29.9)
@@ -31,6 +32,13 @@ def analyze_bmi(weight, height)
   if bmi >= 30
     puts(" Obese ")
   end
+end
+=end
 
-  end
+#=begin
+  return 'Underweight' if bmi < 18.5
+  return 'Normal weight' if bmi.between?(18.5, 24.9)
+  return 'Overweight' if bmi.between?(25, 29.9)
+  'Obese'
+end
 

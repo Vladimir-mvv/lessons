@@ -12,6 +12,7 @@
 
 def bmi(weight, height)
   #TODO вычислить значение индекса массы тела для заданных weight (kg) и height (cm)
-  index = weight.to_f / (height.to_f/100)**2
+  #index = (weight.to_f / (height.to_f/100)**2).round(1)
+  (weight / (height.to_f/100)**2).round(1)
 end
 

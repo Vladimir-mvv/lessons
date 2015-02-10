@@ -10,10 +10,12 @@ d = 0 => root1
 Результат округляется до 1 знака после запятой.
 =end
 
+=begin
 def method_name(a, b, c)
   d = (b.to_f)**2 - 4 * (a.to_f) * (c.to_f)
-end
+=end
 
+=begin
 def quadratic_equation(a, b, c)
   #TODO код для решения квадратного уравнения
   d = method_name(a, b, c)
@@ -30,5 +32,16 @@ def quadratic_equation(a, b, c)
           puts ("root1 = #{root1} root2 = #{root2}")
 
   end
+=end
+
+def method_name(a, b, c)
+  d = (b**2 - 4 * a * c).to_f
 end
 
+def quadratic_equation(a, b, c)
+  #TODO код для решения квадратного уравнения
+  d = method_name(a, b, c)
+  return 'No roots' if d < 0
+  return -b / (2 * a.to_f) if d == 0
+  [ (( -b + Math.sqrt(d)) / (2 * a)), (( -b - Math.sqrt(d)) / (2 * a)).round(2)]
+end
