@@ -8,7 +8,7 @@
 =end
 
 #используем unicode для корректного перевода кирилицы в downcase
-require "unicode"
+#require "unicode"
 
 class String
 
@@ -19,5 +19,17 @@ class String
   end
 
  #TODO методы для палиндрома и анаграммы должны быть тут
+
+  def palindrom?
+    if other_str == other_str.reverse
+      true
+    else
+      false
+    end
+  end
+
+#  def anagramma?(other_str)  end
+
+  puts 'privet'.palindrom?
 
 end
