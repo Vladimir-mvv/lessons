@@ -42,7 +42,7 @@ class Fixnum
     end
     f
 =end
-
+=begin
   def factorial(n)
     if n == 0
       1
@@ -50,10 +50,10 @@ class Fixnum
       n * factorial(n - 1)
     end
   end
+=end
 
 
-
-    def fact
+    def factorial
       if self == 0 #|| self == 1
         1
       else
@@ -67,11 +67,11 @@ class Fixnum
 #  end
 
 #  puts 3.factorial
-  puts '***'
-#  puts factorial(3)
-  puts '***'
+#  puts '***'
+# puts factorial(3)
+ # puts '***'
   #puts 3.factorial
-  puts 0.fact
+#  puts 0.fact
 
 end
 
