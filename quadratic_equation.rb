@@ -43,5 +43,7 @@ def quadratic_equation(a, b, c)
   d = method_name(a, b, c)
   return 'No roots' if d < 0
   return -b / (2 * a.to_f) if d == 0
-  [ (( -b + Math.sqrt(d)) / (2 * a)), (( -b - Math.sqrt(d)) / (2 * a)).round(2)]
+  [ (( -b + Math.sqrt(d)) / (2 * a)).round(2), (( -b - Math.sqrt(d)) / (2 * a)).round(2)]
 end
+
+puts quadratic_equation(1,4,1)
