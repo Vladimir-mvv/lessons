@@ -1,5 +1,5 @@
 # Array
-p "Array"
+p "*** Array ***"
 #p [[1, 2, 3], 10, 3.14, "this is a string", barnet("pebbles")]
 p [[1, 2, 3], 10, 3.14, "this is a string"]
 p Array.new
@@ -162,3 +162,98 @@ p " each_with_index "
 p a = [ "a", "b", "c"]
 p a.each_with_index {|item, index| puts "[#{index}] => #{item}"}
 
+# Hash
+p "*** Hash ***"
+p "{ :font_size => 10, :font_family => 'Arial'}"
+ { :font_size => 10, :font_family => "Arial"}
+p "{ font_size: 10, font_family: 'Arial'}"
+ { font_size: 10, font_family: "Arial"}
+
+p Hash.new
+p h = Hash.new("Default value")
+p h['key']
+
+p h = Hash.new{ |hash, key| hash[key] = "Default value: #{key}"}
+p h['key']
+
+p Hash.new
+p h.default = "Default value"
+p h['key']
+
+# Removing items
+p "*** Removing items ***"
+p " * delete *"
+p h ={ "a" => 100, "b" => 200 }
+p h.delete("a")
+p h.delete("z")
+
+p " * delete_if *"
+p h ={ "a" => 100, "b" => 200, "c" => 300 }
+p h.delete_if{ |key, value| value > 100}
+p h
+
+p " * keep_if *"
+p h ={ "a" => 100, "b" => 200, "c" => 300 }
+p h.keep_if{ |key, value| value > 100}
+p h
+
+p " * shift *"
+p h ={ 1 => "a", 2 => "b", 3 => "c" }
+p h.shift
+p h
+
+# Useful methods
+p "*** Useful methods ***"
+p " * each *"
+p h ={ "a" => 100, "b" => 200 }
+p 'h.each { |key, value| puts "#{key} is #{value}" }'
+h.each { |key, value| puts "#{key} is #{value}" }
+#p a is 100
+#p b is 200
+
+p " * each_key *"
+p h ={ "a" => 100, "b" => 200 }
+p 'h.each_key { |key| puts key }'
+h.each_key { |key| puts key }
+
+p " * each_value *"
+p h ={ "a" => 100, "b" => 200 }
+p 'h.each_value { |value| puts value }'
+h.each_value { |value| puts value }
+
+p " * key? *"
+p h ={ "a" => 100, "b" => 200 }
+p h.key?("a")
+p h.key?("z")
+
+p " * value? *"
+p h ={ "a" => 100, "b" => 200 }
+p h.value?(100)
+p h.value?(999)
+
+p " * keys *"
+p h ={ "a" => 100, "b" => 200 }
+p h.keys
+
+p " * values *"
+p h ={ "a" => 100, "b" => 200, "c" => 300 }
+p h.values
+
+p " * values_at *"
+p h ={ "a" => 100, "b" => 200, "c" => 300 }
+p h.values_at("a", "c")
+
+p " * length *"
+p h ={ "d" => 100, "a" => 200, "v" => 300, "e" => 400 }
+p h.length
+p h.delete("a")
+p h.length
+
+p " * merge *"
+p h1 ={ "a" => 100, "b" => 200 }
+p h2 ={ "b" => 254, "c" => 300 }
+p h1.merge(h2)
+
+p " * select *"
+p h ={ "a" => 100, "b" => 200, "c" => 300 }
+p h.select { |key, value| value > 100 }
