@@ -257,3 +257,37 @@ p h1.merge(h2)
 p " * select *"
 p h ={ "a" => 100, "b" => 200, "c" => 300 }
 p h.select { |key, value| value > 100 }
+
+# Range
+p "*** Range ***"
+p 1..18
+p (1..10).to_a
+p 1...18
+p (1...18).to_a
+p ('a'..'e').to_a
+
+# Time
+p "*** Time ***"
+p 't = Time.now'
+p t = Time.now
+p 't.year'
+p t.year
+p 't.month'
+p t.month
+p 't.day'
+p t.day
+p 't.wday'
+p t.wday
+p 't.yday'
+p t.yday
+p 't.hour'
+p t.hour
+p 't.min'
+p t.min
+p 't.sec'
+p t.sec
+p 't.zone'
+p t.zone
+p 't.strftime'
+p t.strftime("%Y-%m-%d %H:%M:%S")
+
