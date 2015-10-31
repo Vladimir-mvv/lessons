@@ -43,3 +43,31 @@ end
 r=Reader.new
 #p r.say_hello # undefined method   ERROR
 p Reader.say_hello
+
+p "*** included hook"
+
+module Quality
+#=begin
+  def self.included(klass)
+    klass.send :extend, ClassMethods
+  end
+#=end
+
+  module ClassMethods
+    def global_quality
+      "All the books are great"
+    end
+  end
+
+  def quality
+    "This particular book is great"
+  end
+end
+
+class Book
+  include Quality
+end
+
+p Book.global_quality
+
+p Book.new.quality
